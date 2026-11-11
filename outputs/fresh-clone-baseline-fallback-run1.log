@@ -1,0 +1,19 @@
+baseline: label=fallback-run1 group=X25519 provider_dir=/tmp/lattice-adv-repro.3Vxdxu/oqs-opt-mod n=30 port=18443
+date: 2026-11-11 04:05:02 UTC
+openssl version: OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)
+provider: -rwxrwx--- 1 root root 10511000 Nov 11 04:04 /tmp/lattice-adv-repro.3Vxdxu/oqs-opt-mod/oqsprovider.so
+provider sha256: 82df9457d85e10f26c9ff362bd8197da3bd2e7ebe52dd7dfe4cdd19afa4b94bb
+server cert: /tmp/lattice-adv-repro.3Vxdxu/certs/ecdsa-server.crt
+server cert:         Signature Algorithm: ecdsa-with-SHA256
+server pid=24226 procstat-before: cpu_total_s=0.080 utime_s=0.080 stime_s=0.000 rss_kb=9480
+New, TLSv1.3, Cipher is TLS_AES_256_GCM_SHA384
+trace: ClientHello total bytes=202 (incl. 4-byte handshake header)
+trace: key_share extension length=38 list_len=36 group=0x001d key_exchange_len=32
+Server Temp Key: X25519, 253 bits
+New, TLSv1.3, Cipher is TLS_AES_256_GCM_SHA384
+Verify return code: 0 (ok)
+handshake failures: 0 / 30
+server pid=24226 procstat-after: cpu_total_s=0.160 utime_s=0.150 stime_s=0.010 rss_kb=10076
+handshake summary (fallback-run1, X25519): n=30 mean=16.00 ms median=16.00 ms min=15 ms max=18 ms stdev=0.59 ms
+handshake times ms: 16 16 16 17 18 16 15 16 16 16 16 16 16 16 16 16 16 17 16 16 16 16 16 16 15 15 16 16 15 16
+baseline: DONE label=fallback-run1 group=X25519

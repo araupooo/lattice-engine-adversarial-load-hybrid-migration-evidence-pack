@@ -1,0 +1,18 @@
+baseline: label=hybrid-run1 group=X25519MLKEM768 provider_dir=/tmp/lattice-adv-repro.3Vxdxu/oqs-opt-mod n=30 port=18443
+date: 2026-11-11 04:04:56 UTC
+openssl version: OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)
+provider: -rwxrwx--- 1 root root 10511000 Nov 11 04:04 /tmp/lattice-adv-repro.3Vxdxu/oqs-opt-mod/oqsprovider.so
+provider sha256: 82df9457d85e10f26c9ff362bd8197da3bd2e7ebe52dd7dfe4cdd19afa4b94bb
+server cert: /tmp/lattice-adv-repro.3Vxdxu/certs/ecdsa-server.crt
+server cert:         Signature Algorithm: ecdsa-with-SHA256
+server pid=23666 procstat-before: cpu_total_s=0.080 utime_s=0.080 stime_s=0.000 rss_kb=9712
+New, TLSv1.3, Cipher is TLS_AES_256_GCM_SHA384
+trace: ClientHello total bytes=1378 (incl. 4-byte handshake header)
+trace: key_share extension length=1222 list_len=1220 group=0x11ec key_exchange_len=1216
+New, TLSv1.3, Cipher is TLS_AES_256_GCM_SHA384
+Verify return code: 0 (ok)
+handshake failures: 0 / 30
+server pid=23666 procstat-after: cpu_total_s=0.160 utime_s=0.150 stime_s=0.010 rss_kb=11032
+handshake summary (hybrid-run1, X25519MLKEM768): n=30 mean=18.70 ms median=19.00 ms min=17 ms max=21 ms stdev=1.09 ms
+handshake times ms: 21 21 20 18 19 19 18 20 19 19 18 17 17 19 18 17 19 19 18 18 18 19 19 18 18 21 18 18 19 19
+baseline: DONE label=hybrid-run1 group=X25519MLKEM768
