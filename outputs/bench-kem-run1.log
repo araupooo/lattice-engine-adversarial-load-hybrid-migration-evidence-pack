@@ -1,0 +1,15 @@
+bench_kem: ML-KEM-768 throughput + size check
+liboqs version: 0.16.0
+iterations: 200
+[KEM] algorithm: ML-KEM-768
+[KEM] length_public_key=1184 (FIPS 203 Table 3: 1184) OK
+[KEM] length_secret_key=2400 (FIPS 203 Table 3: 2400) OK
+[KEM] length_ciphertext=1088 (FIPS 203 Table 3: 1088) OK
+[KEM] length_shared_secret=32 (FIPS 203 Table 3: 32) OK
+ML-KEM-768 keypair           n=200   mean=    56.63 us  min=    18.53 us  max=  7474.45 us  rate= 17657.08 ops/s
+ML-KEM-768 encaps            n=200   mean=    19.79 us  min=    19.16 us  max=    41.32 us  rate= 50528.73 ops/s
+ML-KEM-768 decaps            n=200   mean=    25.63 us  min=    24.38 us  max=    67.49 us  rate= 39018.82 ops/s
+shared-secret mismatches: 0 / 200
+full KEM round (keypair+encaps+decaps) mean: 102.05 us
+peak RSS: 5924 KiB
+bench_kem: DONE

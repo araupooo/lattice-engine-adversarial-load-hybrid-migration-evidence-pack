@@ -1,0 +1,18 @@
+baseline: label=hybrid-run2 group=X25519MLKEM768 provider_dir=work/oqs-opt-mod n=30 port=18443
+date: 2026-11-11 03:41:45 UTC
+openssl version: OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)
+provider: -rwxrwx--- 1 root nogroup 10511000 Nov 11 03:34 work/oqs-opt-mod/oqsprovider.so
+provider sha256: 2470693d7154a6d877bf918c4c7c220606e358b19013ac495f2687afe8863c54
+server cert: work/certs/ecdsa-server.crt
+server cert:         Signature Algorithm: ecdsa-with-SHA256
+server pid=2031 procstat-before: cpu_total_s=0.080 utime_s=0.080 stime_s=0.000 rss_kb=9568
+New, TLSv1.3, Cipher is TLS_AES_256_GCM_SHA384
+trace: ClientHello total bytes=1378 (incl. 4-byte handshake header)
+trace: key_share extension length=1222 list_len=1220 group=0x11ec key_exchange_len=1216
+New, TLSv1.3, Cipher is TLS_AES_256_GCM_SHA384
+Verify return code: 0 (ok)
+handshake failures: 0 / 30
+server pid=2031 procstat-after: cpu_total_s=0.160 utime_s=0.140 stime_s=0.020 rss_kb=11068
+handshake summary (hybrid-run2, X25519MLKEM768): n=30 mean=17.37 ms median=17.00 ms min=17 ms max=21 ms stdev=0.81 ms
+handshake times ms: 21 17 18 17 18 17 18 18 17 17 17 17 17 17 17 17 17 18 17 17 17 17 17 17 17 17 17 17 18 18
+baseline: DONE label=hybrid-run2 group=X25519MLKEM768

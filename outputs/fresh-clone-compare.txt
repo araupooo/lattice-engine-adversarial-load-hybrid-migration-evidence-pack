@@ -1,0 +1,50 @@
+PASS bench run1 sizes OK (FIPS 203 Table 3) fresh
+PASS bench run1 sizes OK (FIPS 203 Table 3) shipped
+PASS bench run1 shared-secret mismatches 0 
+PASS bench run1 keypair min within 25% and mean within 2x shipped mean=56.63 min=18.53 us; fresh mean=30.96 min=18.4 us
+PASS bench run1 encaps mean within 25% shipped=19.79 us fresh=19.87 us
+PASS bench run1 decaps mean within 25% shipped=25.63 us fresh=25.49 us
+PASS bench run2 sizes OK (FIPS 203 Table 3) fresh
+PASS bench run2 sizes OK (FIPS 203 Table 3) shipped
+PASS bench run2 shared-secret mismatches 0 
+PASS bench run2 keypair min within 25% and mean within 2x shipped mean=31.2 min=18.49 us; fresh mean=33.07 min=18.45 us
+PASS bench run2 encaps mean within 25% shipped=20.11 us fresh=21.62 us
+PASS bench run2 decaps mean within 25% shipped=25.28 us fresh=26.36 us
+PASS baseline hybrid run1 failures 0/30 
+PASS baseline hybrid run1 key_share len 1216 shipped=1216 fresh=1216
+PASS baseline hybrid run1 median within 25% or 5 ms shipped median=18.0 ms fresh median=19.0 ms
+PASS baseline hybrid run2 failures 0/30 
+PASS baseline hybrid run2 key_share len 1216 shipped=1216 fresh=1216
+PASS baseline hybrid run2 median within 25% or 5 ms shipped median=17.0 ms fresh median=18.0 ms
+PASS baseline fallback run1 failures 0/30 
+PASS baseline fallback run1 key_share len 32 shipped=32 fresh=32
+PASS baseline fallback run1 median within 25% or 5 ms shipped median=15.0 ms fresh median=16.0 ms
+PASS baseline fallback run2 failures 0/30 
+PASS baseline fallback run2 key_share len 32 shipped=32 fresh=32
+PASS baseline fallback run2 median within 25% or 5 ms shipped median=15.0 ms fresh median=16.0 ms
+PASS adversarial run1 malformed (shipped) server alive after every trial 60 trials, 0 probes failed
+PASS adversarial run1 malformed (fresh) server alive after every trial 60 trials, 0 probes failed
+PASS adversarial run1 malformed trial counts match shipped=60 fresh=60
+PASS adversarial run1 truncated (shipped) server alive after every trial 20 trials, 0 probes failed
+PASS adversarial run1 truncated (fresh) server alive after every trial 20 trials, 0 probes failed
+PASS adversarial run1 truncated trial counts match shipped=20 fresh=20
+PASS adversarial run2 malformed (shipped) server alive after every trial 60 trials, 0 probes failed
+PASS adversarial run2 malformed (fresh) server alive after every trial 60 trials, 0 probes failed
+PASS adversarial run2 malformed trial counts match shipped=60 fresh=60
+PASS adversarial run2 truncated (shipped) server alive after every trial 20 trials, 0 probes failed
+PASS adversarial run2 truncated (fresh) server alive after every trial 20 trials, 0 probes failed
+PASS adversarial run2 truncated trial counts match shipped=20 fresh=20
+PASS flood run1 success 200/200 shipped=200/200 fresh=200/200
+PASS flood run1 median latency within 50% shipped median=117.2 ms fresh median=116.3 ms
+PASS flood run2 success 200/200 shipped=200/200 fresh=200/200
+PASS flood run2 median latency within 50% shipped median=118.7 ms fresh median=120.7 ms
+PASS slowloris run1 (shipped) legitimate handshake blocked during stall probe_during_stall ok=False
+PASS slowloris run1 (shipped) legitimate handshake succeeds after release probe_after_release ok=True
+PASS slowloris run1 (fresh) legitimate handshake blocked during stall probe_during_stall ok=False
+PASS slowloris run1 (fresh) legitimate handshake succeeds after release probe_after_release ok=True
+PASS slowloris run2 (shipped) legitimate handshake blocked during stall probe_during_stall ok=False
+PASS slowloris run2 (shipped) legitimate handshake succeeds after release probe_after_release ok=True
+PASS slowloris run2 (fresh) legitimate handshake blocked during stall probe_during_stall ok=False
+PASS slowloris run2 (fresh) legitimate handshake succeeds after release probe_after_release ok=True
+
+COMPARISON: ALL CHECKS PASSED
