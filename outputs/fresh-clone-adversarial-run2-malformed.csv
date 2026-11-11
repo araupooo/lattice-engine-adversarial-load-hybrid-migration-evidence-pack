@@ -1,0 +1,61 @@
+variant,trial,sent_bytes,server_bytes,server_reply,observe_ms,probe_ok,probe_ms,probe_detail
+V1-truncated-record,1,15,0,no-tls-record,5005.4,True,19.9,verified
+V1-truncated-record,2,15,0,no-tls-record,5005.2,True,18.2,verified
+V1-truncated-record,3,15,0,no-tls-record,5005.2,True,21.1,verified
+V1-truncated-record,4,15,0,no-tls-record,5005.1,True,18.3,verified
+V1-truncated-record,5,15,0,no-tls-record,5005.2,True,17.2,verified
+V1-truncated-record,6,15,0,no-tls-record,5005.2,True,17.1,verified
+V1-truncated-record,7,15,0,no-tls-record,5004.3,True,17.3,verified
+V1-truncated-record,8,15,0,no-tls-record,5005.2,True,17.8,verified
+V1-truncated-record,9,15,0,no-tls-record,5005.3,True,18.3,verified
+V1-truncated-record,10,15,0,no-tls-record,5005.3,True,18.5,verified
+V2-garbage-100B,1,100,0,no-tls-record,0.2,True,15.6,verified
+V2-garbage-100B,2,100,0,no-tls-record,0.2,True,15.8,verified
+V2-garbage-100B,3,100,0,no-tls-record,0.2,True,16.3,verified
+V2-garbage-100B,4,100,0,no-tls-record,0.2,True,16.7,verified
+V2-garbage-100B,5,100,0,no-tls-record,0.2,True,18.1,verified
+V2-garbage-100B,6,100,0,no-tls-record,0.3,True,22.4,verified
+V2-garbage-100B,7,100,0,no-tls-record,0.2,True,15.7,verified
+V2-garbage-100B,8,100,0,no-tls-record,0.2,True,16.9,verified
+V2-garbage-100B,9,100,0,no-tls-record,0.2,True,15.7,verified
+V2-garbage-100B,10,100,0,no-tls-record,0.2,True,15.5,verified
+V3-oversized-length,1,55,0,no-tls-record,5005.2,True,18.0,verified
+V3-oversized-length,2,55,0,no-tls-record,5005.2,True,17.5,verified
+V3-oversized-length,3,55,0,no-tls-record,5005.2,True,17.3,verified
+V3-oversized-length,4,55,0,no-tls-record,5003.5,True,18.2,verified
+V3-oversized-length,5,55,0,no-tls-record,5005.2,True,17.1,verified
+V3-oversized-length,6,55,0,no-tls-record,5002.0,True,18.4,verified
+V3-oversized-length,7,55,0,no-tls-record,5004.9,True,16.9,verified
+V3-oversized-length,8,55,0,no-tls-record,5004.3,True,17.1,verified
+V3-oversized-length,9,55,0,no-tls-record,5005.2,True,18.1,verified
+V3-oversized-length,10,55,0,no-tls-record,5004.2,True,19.6,verified
+V4-bad-version-tls10,1,1303,7,alert level=2 desc=70 (protocol_version),0.4,True,16.4,verified
+V4-bad-version-tls10,2,1303,7,alert level=2 desc=70 (protocol_version),0.2,True,15.7,verified
+V4-bad-version-tls10,3,1303,7,alert level=2 desc=70 (protocol_version),0.2,True,16.2,verified
+V4-bad-version-tls10,4,1303,7,alert level=2 desc=70 (protocol_version),0.2,True,15.6,verified
+V4-bad-version-tls10,5,1303,7,alert level=2 desc=70 (protocol_version),0.2,True,15.9,verified
+V4-bad-version-tls10,6,1303,7,alert level=2 desc=70 (protocol_version),0.3,True,16.4,verified
+V4-bad-version-tls10,7,1303,7,alert level=2 desc=70 (protocol_version),0.3,True,15.7,verified
+V4-bad-version-tls10,8,1303,7,alert level=2 desc=70 (protocol_version),0.3,True,16.2,verified
+V4-bad-version-tls10,9,1303,7,alert level=2 desc=70 (protocol_version),0.3,True,15.9,verified
+V4-bad-version-tls10,10,1303,7,alert level=2 desc=70 (protocol_version),0.3,True,16.2,verified
+V5-bad-keyshare-zero-ek,1,1303,7,alert level=2 desc=40 (handshake_failure),0.5,True,16.1,verified
+V5-bad-keyshare-zero-ek,2,1303,7,alert level=2 desc=40 (handshake_failure),0.5,True,16.0,verified
+V5-bad-keyshare-zero-ek,3,1303,7,alert level=2 desc=40 (handshake_failure),0.5,True,15.9,verified
+V5-bad-keyshare-zero-ek,4,1303,7,alert level=2 desc=40 (handshake_failure),0.5,True,15.5,verified
+V5-bad-keyshare-zero-ek,5,1303,7,alert level=2 desc=40 (handshake_failure),0.4,True,18.8,verified
+V5-bad-keyshare-zero-ek,6,1303,7,alert level=2 desc=40 (handshake_failure),0.6,True,17.6,verified
+V5-bad-keyshare-zero-ek,7,1303,7,alert level=2 desc=40 (handshake_failure),0.5,True,16.2,verified
+V5-bad-keyshare-zero-ek,8,1303,7,alert level=2 desc=40 (handshake_failure),0.6,True,17.3,verified
+V5-bad-keyshare-zero-ek,9,1303,7,alert level=2 desc=40 (handshake_failure),0.6,True,16.5,verified
+V5-bad-keyshare-zero-ek,10,1303,7,alert level=2 desc=40 (handshake_failure),0.4,True,16.1,verified
+V6-empty-close,1,0,0,no-tls-record,5003.2,True,18.9,verified
+V6-empty-close,2,0,0,no-tls-record,5005.3,True,17.5,verified
+V6-empty-close,3,0,0,no-tls-record,5005.3,True,17.9,verified
+V6-empty-close,4,0,0,no-tls-record,5005.2,True,20.2,verified
+V6-empty-close,5,0,0,no-tls-record,5003.2,True,17.5,verified
+V6-empty-close,6,0,0,no-tls-record,5005.2,True,19.2,verified
+V6-empty-close,7,0,0,no-tls-record,5002.7,True,21.2,verified
+V6-empty-close,8,0,0,no-tls-record,5003.6,True,20.5,verified
+V6-empty-close,9,0,0,no-tls-record,5005.2,True,18.5,verified
+V6-empty-close,10,0,0,no-tls-record,5004.3,True,19.2,verified
