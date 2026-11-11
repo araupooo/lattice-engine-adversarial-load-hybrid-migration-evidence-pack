@@ -1,0 +1,6 @@
+slowloris stalls_opened=30 hold_s=30
+probe_during_stall ok=False ms=10006.0 detail=TIMEOUT
+stalls_still_open_after_hold=30
+probe_after_release ok=True ms=20.4 detail=verified
+server_cpu_before_s=0.86 server_cpu_after_s=0.87 cpu_delta_s=0.010
+server_rss_before_kib=11024 server_rss_mid_kib=11024 server_rss_after_kib=11024

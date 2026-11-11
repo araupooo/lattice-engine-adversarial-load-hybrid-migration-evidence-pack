@@ -1,0 +1,186 @@
+adversarial: label=adversarial-run2 group=X25519MLKEM768 provider_dir=work/oqs-opt-mod server_port=18444 capture_port=18445
+date: 2026-11-11 03:47:03 UTC
+openssl version: OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)
+provider sha256: 2470693d7154a6d877bf918c4c7c220606e358b19013ac495f2687afe8863c54
+server cert:         Signature Algorithm: ecdsa-with-SHA256
+note: openssl s_server is single-threaded; a stalled connection blocks later handshakes.
+note: that is a property of this test deployment, NOT a production-server claim.
+=== capture ===
+capture: listening on 127.0.0.1:18445, run s_client against it
+capture: wrote 1383 bytes to /home/hatch/workspace/goals/postfiat-task-node-connection/hidden_files/task-7a42abaa/pack/outputs/adversarial-run2-clienthello.bin
+capture: first record type=0x16 len=1378
+server pid=3772 procstat-before: cpu_total_s=0.080 utime_s=0.080 stime_s=0.000 rss_kb=9664
+=== malformed ===
+malformed: real ClientHello 1383 bytes from /home/hatch/workspace/goals/postfiat-task-node-connection/hidden_files/task-7a42abaa/pack/outputs/adversarial-run2-clienthello.bin
+malformed V1-truncated-record trial 1: sent=15B server=no-tls-record (0B, 5002.6ms) probe_ok=True probe_ms=18.5
+malformed V1-truncated-record trial 2: sent=15B server=no-tls-record (0B, 5005.3ms) probe_ok=True probe_ms=17.5
+malformed V1-truncated-record trial 3: sent=15B server=no-tls-record (0B, 5005.2ms) probe_ok=True probe_ms=17.1
+malformed V1-truncated-record trial 4: sent=15B server=no-tls-record (0B, 5005.2ms) probe_ok=True probe_ms=17.8
+malformed V1-truncated-record trial 5: sent=15B server=no-tls-record (0B, 5004.7ms) probe_ok=True probe_ms=17.5
+malformed V1-truncated-record trial 6: sent=15B server=no-tls-record (0B, 5004.3ms) probe_ok=True probe_ms=30.9
+malformed V1-truncated-record trial 7: sent=15B server=no-tls-record (0B, 5006.8ms) probe_ok=True probe_ms=23.3
+malformed V1-truncated-record trial 8: sent=15B server=no-tls-record (0B, 5004.6ms) probe_ok=True probe_ms=17.5
+malformed V1-truncated-record trial 9: sent=15B server=no-tls-record (0B, 5004.3ms) probe_ok=True probe_ms=17.3
+malformed V1-truncated-record trial 10: sent=15B server=no-tls-record (0B, 5005.2ms) probe_ok=True probe_ms=16.5
+40C77E6685760000:error:0A00010B:SSL routines:ssl3_get_record:wrong version number:../ssl/record/ssl3_record.c:354:
+malformed V2-garbage-100B trial 1: sent=100B server=no-tls-record (0B, 0.3ms) probe_ok=True probe_ms=15.3
+40C77E6685760000:error:0A00010B:SSL routines:ssl3_get_record:wrong version number:../ssl/record/ssl3_record.c:354:
+malformed V2-garbage-100B trial 2: sent=100B server=no-tls-record (0B, 0.2ms) probe_ok=True probe_ms=15.3
+40C77E6685760000:error:0A00010B:SSL routines:ssl3_get_record:wrong version number:../ssl/record/ssl3_record.c:354:
+malformed V2-garbage-100B trial 3: sent=100B server=no-tls-record (0B, 0.2ms) probe_ok=True probe_ms=18.0
+40C77E6685760000:error:0A00010B:SSL routines:ssl3_get_record:wrong version number:../ssl/record/ssl3_record.c:354:
+malformed V2-garbage-100B trial 4: sent=100B server=no-tls-record (0B, 0.2ms) probe_ok=True probe_ms=15.0
+40C77E6685760000:error:0A00010B:SSL routines:ssl3_get_record:wrong version number:../ssl/record/ssl3_record.c:354:
+40C77E6685760000:error:0A00010B:SSL routines:ssl3_get_record:wrong version number:../ssl/record/ssl3_record.c:354:
+malformed V2-garbage-100B trial 5: sent=100B server=no-tls-record (0B, 0.2ms) probe_ok=True probe_ms=15.1
+malformed V2-garbage-100B trial 6: sent=100B server=no-tls-record (0B, 0.2ms) probe_ok=True probe_ms=15.8
+40C77E6685760000:error:0A00010B:SSL routines:ssl3_get_record:wrong version number:../ssl/record/ssl3_record.c:354:
+malformed V2-garbage-100B trial 7: sent=100B server=no-tls-record (0B, 0.2ms) probe_ok=True probe_ms=17.4
+40C77E6685760000:error:0A00010B:SSL routines:ssl3_get_record:wrong version number:../ssl/record/ssl3_record.c:354:
+malformed V2-garbage-100B trial 8: sent=100B server=no-tls-record (0B, 0.2ms) probe_ok=True probe_ms=15.2
+40C77E6685760000:error:0A00010B:SSL routines:ssl3_get_record:wrong version number:../ssl/record/ssl3_record.c:354:
+malformed V2-garbage-100B trial 9: sent=100B server=no-tls-record (0B, 0.2ms) probe_ok=True probe_ms=15.3
+40C77E6685760000:error:0A00010B:SSL routines:ssl3_get_record:wrong version number:../ssl/record/ssl3_record.c:354:
+malformed V2-garbage-100B trial 10: sent=100B server=no-tls-record (0B, 0.2ms) probe_ok=True probe_ms=15.1
+40C77E6685760000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+malformed V3-oversized-length trial 1: sent=55B server=no-tls-record (0B, 5005.1ms) probe_ok=True probe_ms=16.6
+40C77E6685760000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+malformed V3-oversized-length trial 2: sent=55B server=no-tls-record (0B, 5005.0ms) probe_ok=True probe_ms=21.9
+40C77E6685760000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+malformed V3-oversized-length trial 3: sent=55B server=no-tls-record (0B, 5005.2ms) probe_ok=True probe_ms=16.8
+40C77E6685760000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+malformed V3-oversized-length trial 4: sent=55B server=no-tls-record (0B, 5005.2ms) probe_ok=True probe_ms=17.5
+40C77E6685760000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+malformed V3-oversized-length trial 5: sent=55B server=no-tls-record (0B, 5005.2ms) probe_ok=True probe_ms=17.2
+40C77E6685760000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+malformed V3-oversized-length trial 6: sent=55B server=no-tls-record (0B, 5005.2ms) probe_ok=True probe_ms=17.0
+40C77E6685760000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+malformed V3-oversized-length trial 7: sent=55B server=no-tls-record (0B, 5005.3ms) probe_ok=True probe_ms=19.0
+40C77E6685760000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+malformed V3-oversized-length trial 8: sent=55B server=no-tls-record (0B, 5005.2ms) probe_ok=True probe_ms=17.8
+40C77E6685760000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+malformed V3-oversized-length trial 9: sent=55B server=no-tls-record (0B, 5005.2ms) probe_ok=True probe_ms=18.7
+40C77E6685760000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+malformed V3-oversized-length trial 10: sent=55B server=no-tls-record (0B, 5005.2ms) probe_ok=True probe_ms=16.9
+40C77E6685760000:error:0A000102:SSL routines:tls_early_post_process_client_hello:unsupported protocol:../ssl/statem/statem_srvr.c:1657:
+malformed V4-bad-version-tls10 trial 1: sent=1303B server=alert level=2 desc=70 (protocol_version) (7B, 0.2ms) probe_ok=True probe_ms=16.0
+40C77E6685760000:error:0A000102:SSL routines:tls_early_post_process_client_hello:unsupported protocol:../ssl/statem/statem_srvr.c:1657:
+malformed V4-bad-version-tls10 trial 2: sent=1303B server=alert level=2 desc=70 (protocol_version) (7B, 0.3ms) probe_ok=True probe_ms=17.3
+40C77E6685760000:error:0A000102:SSL routines:tls_early_post_process_client_hello:unsupported protocol:../ssl/statem/statem_srvr.c:1657:
+malformed V4-bad-version-tls10 trial 3: sent=1303B server=alert level=2 desc=70 (protocol_version) (7B, 0.3ms) probe_ok=True probe_ms=15.9
+40C77E6685760000:error:0A000102:SSL routines:tls_early_post_process_client_hello:unsupported protocol:../ssl/statem/statem_srvr.c:1657:
+malformed V4-bad-version-tls10 trial 4: sent=1303B server=alert level=2 desc=70 (protocol_version) (7B, 0.3ms) probe_ok=True probe_ms=15.9
+40C77E6685760000:error:0A000102:SSL routines:tls_early_post_process_client_hello:unsupported protocol:../ssl/statem/statem_srvr.c:1657:
+malformed V4-bad-version-tls10 trial 5: sent=1303B server=alert level=2 desc=70 (protocol_version) (7B, 0.3ms) probe_ok=True probe_ms=15.6
+40C77E6685760000:error:0A000102:SSL routines:tls_early_post_process_client_hello:unsupported protocol:../ssl/statem/statem_srvr.c:1657:
+malformed V4-bad-version-tls10 trial 6: sent=1303B server=alert level=2 desc=70 (protocol_version) (7B, 0.3ms) probe_ok=True probe_ms=15.5
+40C77E6685760000:error:0A000102:SSL routines:tls_early_post_process_client_hello:unsupported protocol:../ssl/statem/statem_srvr.c:1657:
+malformed V4-bad-version-tls10 trial 7: sent=1303B server=alert level=2 desc=70 (protocol_version) (7B, 0.2ms) probe_ok=True probe_ms=15.5
+40C77E6685760000:error:0A000102:SSL routines:tls_early_post_process_client_hello:unsupported protocol:../ssl/statem/statem_srvr.c:1657:
+malformed V4-bad-version-tls10 trial 8: sent=1303B server=alert level=2 desc=70 (protocol_version) (7B, 0.2ms) probe_ok=True probe_ms=15.1
+40C77E6685760000:error:0A000102:SSL routines:tls_early_post_process_client_hello:unsupported protocol:../ssl/statem/statem_srvr.c:1657:
+malformed V4-bad-version-tls10 trial 9: sent=1303B server=alert level=2 desc=70 (protocol_version) (7B, 0.2ms) probe_ok=True probe_ms=15.5
+40C77E6685760000:error:0A000102:SSL routines:tls_early_post_process_client_hello:unsupported protocol:../ssl/statem/statem_srvr.c:1657:
+malformed V4-bad-version-tls10 trial 10: sent=1303B server=alert level=2 desc=70 (protocol_version) (7B, 0.3ms) probe_ok=True probe_ms=15.1
+40C77E6685760000:error:0A000076:SSL routines:tls_choose_sigalg:no suitable signature algorithm:../ssl/t1_lib.c:3252:
+malformed V5-bad-keyshare-zero-ek trial 1: sent=1303B server=alert level=2 desc=40 (handshake_failure) (7B, 0.4ms) probe_ok=True probe_ms=15.2
+40C77E6685760000:error:0A000076:SSL routines:tls_choose_sigalg:no suitable signature algorithm:../ssl/t1_lib.c:3252:
+malformed V5-bad-keyshare-zero-ek trial 2: sent=1303B server=alert level=2 desc=40 (handshake_failure) (7B, 0.5ms) probe_ok=True probe_ms=15.1
+40C77E6685760000:error:0A000076:SSL routines:tls_choose_sigalg:no suitable signature algorithm:../ssl/t1_lib.c:3252:
+malformed V5-bad-keyshare-zero-ek trial 3: sent=1303B server=alert level=2 desc=40 (handshake_failure) (7B, 0.4ms) probe_ok=True probe_ms=15.3
+40C77E6685760000:error:0A000076:SSL routines:tls_choose_sigalg:no suitable signature algorithm:../ssl/t1_lib.c:3252:
+malformed V5-bad-keyshare-zero-ek trial 4: sent=1303B server=alert level=2 desc=40 (handshake_failure) (7B, 0.5ms) probe_ok=True probe_ms=15.1
+40C77E6685760000:error:0A000076:SSL routines:tls_choose_sigalg:no suitable signature algorithm:../ssl/t1_lib.c:3252:
+malformed V5-bad-keyshare-zero-ek trial 5: sent=1303B server=alert level=2 desc=40 (handshake_failure) (7B, 0.4ms) probe_ok=True probe_ms=15.3
+40C77E6685760000:error:0A000076:SSL routines:tls_choose_sigalg:no suitable signature algorithm:../ssl/t1_lib.c:3252:
+malformed V5-bad-keyshare-zero-ek trial 6: sent=1303B server=alert level=2 desc=40 (handshake_failure) (7B, 0.3ms) probe_ok=True probe_ms=15.9
+40C77E6685760000:error:0A000076:SSL routines:tls_choose_sigalg:no suitable signature algorithm:../ssl/t1_lib.c:3252:
+malformed V5-bad-keyshare-zero-ek trial 7: sent=1303B server=alert level=2 desc=40 (handshake_failure) (7B, 0.5ms) probe_ok=True probe_ms=17.7
+40C77E6685760000:error:0A000076:SSL routines:tls_choose_sigalg:no suitable signature algorithm:../ssl/t1_lib.c:3252:
+malformed V5-bad-keyshare-zero-ek trial 8: sent=1303B server=alert level=2 desc=40 (handshake_failure) (7B, 0.8ms) probe_ok=True probe_ms=17.1
+40C77E6685760000:error:0A000076:SSL routines:tls_choose_sigalg:no suitable signature algorithm:../ssl/t1_lib.c:3252:
+malformed V5-bad-keyshare-zero-ek trial 9: sent=1303B server=alert level=2 desc=40 (handshake_failure) (7B, 0.6ms) probe_ok=True probe_ms=16.4
+40C77E6685760000:error:0A000076:SSL routines:tls_choose_sigalg:no suitable signature algorithm:../ssl/t1_lib.c:3252:
+malformed V5-bad-keyshare-zero-ek trial 10: sent=1303B server=alert level=2 desc=40 (handshake_failure) (7B, 0.5ms) probe_ok=True probe_ms=17.8
+malformed V6-empty-close trial 1: sent=0B server=no-tls-record (0B, 5001.2ms) probe_ok=True probe_ms=17.5
+malformed V6-empty-close trial 2: sent=0B server=no-tls-record (0B, 5001.9ms) probe_ok=True probe_ms=17.6
+malformed V6-empty-close trial 3: sent=0B server=no-tls-record (0B, 5004.2ms) probe_ok=True probe_ms=17.7
+malformed V6-empty-close trial 4: sent=0B server=no-tls-record (0B, 5005.2ms) probe_ok=True probe_ms=17.0
+malformed V6-empty-close trial 5: sent=0B server=no-tls-record (0B, 5005.2ms) probe_ok=True probe_ms=18.5
+malformed V6-empty-close trial 6: sent=0B server=no-tls-record (0B, 5003.0ms) probe_ok=True probe_ms=21.1
+malformed V6-empty-close trial 7: sent=0B server=no-tls-record (0B, 5004.4ms) probe_ok=True probe_ms=17.2
+malformed V6-empty-close trial 8: sent=0B server=no-tls-record (0B, 5005.2ms) probe_ok=True probe_ms=17.6
+malformed V6-empty-close trial 9: sent=0B server=no-tls-record (0B, 5005.2ms) probe_ok=True probe_ms=17.6
+malformed V6-empty-close trial 10: sent=0B server=no-tls-record (0B, 5005.2ms) probe_ok=True probe_ms=18.8
+malformed: wrote 60 rows to /home/hatch/workspace/goals/postfiat-task-node-connection/hidden_files/task-7a42abaa/pack/outputs/adversarial-run2-malformed.csv
+=== truncated ===
+truncated prefix=20B trial 1: server=no-tls-record (0B) probe_ok=True probe_ms=17.8
+truncated prefix=20B trial 2: server=no-tls-record (0B) probe_ok=True probe_ms=17.1
+truncated prefix=20B trial 3: server=no-tls-record (0B) probe_ok=True probe_ms=17.5
+truncated prefix=20B trial 4: server=no-tls-record (0B) probe_ok=True probe_ms=17.2
+truncated prefix=20B trial 5: server=no-tls-record (0B) probe_ok=True probe_ms=18.0
+truncated prefix=20B trial 6: server=no-tls-record (0B) probe_ok=True probe_ms=17.4
+truncated prefix=20B trial 7: server=no-tls-record (0B) probe_ok=True probe_ms=19.4
+truncated prefix=20B trial 8: server=no-tls-record (0B) probe_ok=True probe_ms=18.4
+truncated prefix=20B trial 9: server=no-tls-record (0B) probe_ok=True probe_ms=23.3
+truncated prefix=20B trial 10: server=no-tls-record (0B) probe_ok=True probe_ms=17.9
+truncated prefix=100B trial 1: server=no-tls-record (0B) probe_ok=True probe_ms=18.1
+truncated prefix=100B trial 2: server=no-tls-record (0B) probe_ok=True probe_ms=17.0
+truncated prefix=100B trial 3: server=no-tls-record (0B) probe_ok=True probe_ms=17.2
+truncated prefix=100B trial 4: server=no-tls-record (0B) probe_ok=True probe_ms=17.2
+truncated prefix=100B trial 5: server=no-tls-record (0B) probe_ok=True probe_ms=20.0
+truncated prefix=100B trial 6: server=no-tls-record (0B) probe_ok=True probe_ms=16.9
+truncated prefix=100B trial 7: server=no-tls-record (0B) probe_ok=True probe_ms=17.8
+truncated prefix=100B trial 8: server=no-tls-record (0B) probe_ok=True probe_ms=17.2
+truncated prefix=100B trial 9: server=no-tls-record (0B) probe_ok=True probe_ms=17.6
+truncated prefix=100B trial 10: server=no-tls-record (0B) probe_ok=True probe_ms=17.2
+truncated: wrote 20 rows to /home/hatch/workspace/goals/postfiat-task-node-connection/hidden_files/task-7a42abaa/pack/outputs/adversarial-run2-truncated.csv
+=== flood ===
+flood: server pid=3772 cpu_before=0.32s rss_before=11048KiB n=200 concurrency=10 group=X25519MLKEM768
+flood: success 200/200 (100.0%) wall=2.55s rate=78.34 handshakes/s
+flood: latency ms min=24.1 median=118.7 p95=164.4 max=175.2
+flood: server cpu 0.320s -> 0.860s delta=0.540s (2.70 ms CPU per handshake attempt)
+flood: server rss 11048KiB -> 11048KiB delta=0KiB (0.00 KiB per handshake attempt)
+flood: wrote 200 rows to /home/hatch/workspace/goals/postfiat-task-node-connection/hidden_files/task-7a42abaa/pack/outputs/adversarial-run2-flood.csv, summary to /home/hatch/workspace/goals/postfiat-task-node-connection/hidden_files/task-7a42abaa/pack/outputs/adversarial-run2-flood-summary.txt
+=== slowloris ===
+slowloris: server pid=3772 cpu_before=0.86s rss_before=11048KiB stalls=30 hold=30s
+slowloris: 30 stalled connections open; holding 30s
+slowloris: at t=5s server cpu=0.86s rss=11048KiB
+slowloris: legitimate handshake DURING stall: ok=False ms=10007.3 detail=TIMEOUT
+slowloris: stalls still open after 30s hold: 30/30
+40C77E6685760000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+40C77E6685760000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+40C77E6685760000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+40C77E6685760000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+40C77E6685760000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+40C77E6685760000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+40C77E6685760000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+40C77E6685760000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+40C77E6685760000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+40C77E6685760000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+40C77E6685760000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+40C77E6685760000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+40C77E6685760000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+40C77E6685760000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+40C77E6685760000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+40C77E6685760000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+40C77E6685760000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+40C77E6685760000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+40C77E6685760000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+40C77E6685760000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+40C77E6685760000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+40C77E6685760000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+40C77E6685760000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+40C77E6685760000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+40C77E6685760000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+40C77E6685760000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+40C77E6685760000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+40C77E6685760000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+40C77E6685760000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+40C77E6685760000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+40C77E6685760000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+slowloris: legitimate handshake AFTER releasing stalls: ok=True ms=35.8 detail=verified
+slowloris: server cpu 0.86s -> 0.86s rss 11048KiB -> 11048KiB
+server pid=3772 procstat-after: cpu_total_s=0.860 utime_s=0.690 stime_s=0.170 rss_kb=11048
+probe: ok=True ms=17.1 detail=verified
+adversarial: DONE label=adversarial-run2
