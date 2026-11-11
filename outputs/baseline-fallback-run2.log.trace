@@ -1,0 +1,149 @@
+CONNECTED(00000003)
+>>> TLS 1.0, RecordHeader [length 0005]
+    16 03 01 00 ca
+>>> TLS 1.3, Handshake [length 00ca], ClientHello
+    01 00 00 c6 03 03 13 1a 6b 28 50 db 87 67 e2 f5
+    04 8e 00 14 c7 74 a9 d0 a3 69 ac f5 77 33 b1 aa
+    ad 5f 15 d7 09 b9 20 cd 7c 87 df 01 33 fa 16 31
+    8f dc b1 0c 04 43 f7 42 33 25 89 e6 e2 0c 22 df
+    9a 77 17 8c 8a 95 08 00 08 13 02 13 03 13 01 00
+    ff 01 00 00 75 00 0b 00 04 03 00 01 02 00 0a 00
+    04 00 02 00 1d 00 23 00 00 00 16 00 00 00 17 00
+    00 00 0d 00 1e 00 1c 04 03 05 03 06 03 08 07 08
+    08 08 09 08 0a 08 0b 08 04 08 05 08 06 04 01 05
+    01 06 01 00 2b 00 03 02 03 04 00 2d 00 02 01 01
+    00 33 00 26 00 24 00 1d 00 20 67 a9 9b 72 9b 20
+    62 fa 23 a4 3f 7b a2 35 16 3b 15 2b ab dd be c0
+    d2 08 43 ee bb 07 2c 5a 94 4c
+<<< TLS 1.2, RecordHeader [length 0005]
+    16 03 03 00 7a
+<<< TLS 1.3, Handshake [length 007a], ServerHello
+    02 00 00 76 03 03 51 3c de ae 7e 00 7a 0c e2 cb
+    80 3f 41 dc 52 33 ca c2 c7 57 31 cf 02 58 a5 a3
+    c0 3f 70 d9 80 74 20 cd 7c 87 df 01 33 fa 16 31
+    8f dc b1 0c 04 43 f7 42 33 25 89 e6 e2 0c 22 df
+    9a 77 17 8c 8a 95 08 13 02 00 00 2e 00 2b 00 02
+    03 04 00 33 00 24 00 1d 00 20 7c df 06 00 ed 5e
+    e1 ee 93 ac 17 ac 20 87 01 f6 3e 42 c2 ae ef e0
+    22 c3 6a c9 88 50 24 f8 50 69
+<<< TLS 1.2, RecordHeader [length 0005]
+    14 03 03 00 01
+<<< TLS 1.2, RecordHeader [length 0005]
+    17 03 03 00 17
+<<< TLS 1.3, InnerContent [length 0001]
+    16
+<<< TLS 1.3, Handshake [length 0006], EncryptedExtensions
+    08 00 00 02 00 00
+Can't use SSL_get_servername
+<<< TLS 1.2, RecordHeader [length 0005]
+    17 03 03 01 8b
+<<< TLS 1.3, InnerContent [length 0001]
+    16
+<<< TLS 1.3, Handshake [length 017a], Certificate
+    0b 00 01 76 00 00 01 72 00 01 6d 30 82 01 69 30
+    81 f0 02 14 65 80 d0 55 fe a0 95 07 80 9a 44 cc
+    65 60 5f 24 53 62 73 54 30 0a 06 08 2a 86 48 ce
+    3d 04 03 02 30 1e 31 1c 30 1a 06 03 55 04 03 0c
+    13 54 65 73 74 20 45 43 44 53 41 20 50 2d 33 38
+    34 20 43 41 30 1e 17 0d 32 36 31 31 31 31 30 33
+    33 38 31 31 5a 17 0d 32 36 31 31 31 33 30 33 33
+    38 31 31 5a 30 14 31 12 30 10 06 03 55 04 03 0c
+    09 6c 6f 63 61 6c 68 6f 73 74 30 76 30 10 06 07
+    2a 86 48 ce 3d 02 01 06 05 2b 81 04 00 22 03 62
+    00 04 42 54 1b 93 ef 71 9a 35 2b f0 7b 9a c6 17
+    92 4e 99 22 1e 67 4d b3 81 23 a3 bd b4 60 42 7c
+    cc 5c 2e 42 6d e8 5a 00 3b 84 56 78 8a c6 7f 15
+    a1 46 4e ad 5e a8 96 1d 8b 35 ec 0f a6 1f 83 92
+    71 0a c1 aa 9d 3f b3 73 25 a3 38 98 3c 90 fc 0e
+    19 2d 29 35 c0 39 14 6c fb 8d 55 e6 0a 31 32 52
+    a6 49 30 0a 06 08 2a 86 48 ce 3d 04 03 02 03 68
+    00 30 65 02 31 00 a9 08 61 40 3c 14 16 c8 63 c6
+    95 e5 8f 9c fd c1 90 29 78 9e 20 ac 50 e1 af d7
+    4d 79 c2 83 c4 cc 55 9c 96 70 f7 bb 7a 2f f2 64
+    e7 d7 52 09 13 51 02 30 59 55 e6 41 30 f3 85 05
+    e6 71 e5 63 8f 14 d8 95 e6 19 97 09 52 fc b3 8f
+    0f 76 06 8d 93 a6 96 2b 47 0e ee 51 12 cf a2 2a
+    ea 63 83 9f f2 60 cc 74 00 00
+depth=1 CN = Test ECDSA P-384 CA
+verify return:1
+depth=0 CN = localhost
+verify return:1
+<<< TLS 1.2, RecordHeader [length 0005]
+    17 03 03 00 7f
+<<< TLS 1.3, InnerContent [length 0001]
+    16
+<<< TLS 1.3, Handshake [length 006e], CertificateVerify
+    0f 00 00 6a 05 03 00 66 30 64 02 30 52 26 ac da
+    08 df a8 eb 91 3c e1 96 6d 2a c9 0f 66 0e cd f9
+    41 0c d0 5e f7 1c ef 09 1c 43 70 e3 5c 5a e9 c8
+    ae dd 98 21 9d b9 2e fa 30 47 14 61 02 30 52 4d
+    16 5c bd 6d 14 67 61 b8 85 89 f1 3f cb c1 e1 b5
+    32 3f b4 cd 70 fa 47 aa 11 5c 2c 84 d5 2c 5a 7b
+    ee f8 53 b9 31 ce 3b be f2 e5 10 61 e7 ef
+<<< TLS 1.2, RecordHeader [length 0005]
+    17 03 03 00 45
+<<< TLS 1.3, InnerContent [length 0001]
+    16
+<<< TLS 1.3, Handshake [length 0034], Finished
+    14 00 00 30 af b0 26 dd 5f 57 b5 0c 8c 8d 2f d7
+    04 46 bf 82 c7 39 2a 5b cf c8 e3 d5 7b 69 02 b1
+    ed 9a a2 ec 15 3e e6 00 31 00 af a0 09 91 13 a1
+    d6 14 6a 9c
+>>> TLS 1.2, RecordHeader [length 0005]
+    14 03 03 00 01
+>>> TLS 1.3, ChangeCipherSpec [length 0001]
+    01
+>>> TLS 1.2, RecordHeader [length 0005]
+    17 03 03 00 45
+>>> TLS 1.2, InnerContent [length 0001]
+    16
+>>> TLS 1.3, Handshake [length 0034], Finished
+    14 00 00 30 dc 95 80 35 fb cf 11 0e 05 bb d6 d3
+    06 24 7a 4e 6e bd 9e dc b8 d5 3d 06 4c b3 11 60
+    e6 ed 45 db d3 51 b6 2d f3 8f c9 c1 41 36 48 e9
+    65 dd 83 51
+---
+Certificate chain
+ 0 s:CN = localhost
+   i:CN = Test ECDSA P-384 CA
+   a:PKEY: id-ecPublicKey, 384 (bit); sigalg: ecdsa-with-SHA256
+   v:NotBefore: Nov 11 03:38:11 2026 GMT; NotAfter: Nov 13 03:38:11 2026 GMT
+---
+Server certificate
+-----BEGIN CERTIFICATE-----
+MIIBaTCB8AIUZYDQVf6glQeAmkTMZWBfJFNic1QwCgYIKoZIzj0EAwIwHjEcMBoG
+A1UEAwwTVGVzdCBFQ0RTQSBQLTM4NCBDQTAeFw0yNjExMTEwMzM4MTFaFw0yNjEx
+MTMwMzM4MTFaMBQxEjAQBgNVBAMMCWxvY2FsaG9zdDB2MBAGByqGSM49AgEGBSuB
+BAAiA2IABEJUG5PvcZo1K/B7msYXkk6ZIh5nTbOBI6O9tGBCfMxcLkJt6FoAO4RW
+eIrGfxWhRk6tXqiWHYs17A+mH4OScQrBqp0/s3MloziYPJD8DhktKTXAORRs+41V
+5goxMlKmSTAKBggqhkjOPQQDAgNoADBlAjEAqQhhQDwUFshjxpXlj5z9wZApeJ4g
+rFDhr9dNecKDxMxVnJZw97t6L/Jk59dSCRNRAjBZVeZBMPOFBeZx5WOPFNiV5hmX
+CVL8s48PdgaNk6aWK0cO7lESz6Iq6mODn/JgzHQ=
+-----END CERTIFICATE-----
+subject=CN = localhost
+issuer=CN = Test ECDSA P-384 CA
+---
+No client certificate CA names sent
+Peer signing digest: SHA384
+Peer signature type: ECDSA
+Server Temp Key: X25519, 253 bits
+---
+SSL handshake has read 767 bytes and written 287 bytes
+Verification: OK
+---
+New, TLSv1.3, Cipher is TLS_AES_256_GCM_SHA384
+Server public key is 384 bit
+Secure Renegotiation IS NOT supported
+Compression: NONE
+Expansion: NONE
+No ALPN negotiated
+Early data was not sent
+Verify return code: 0 (ok)
+---
+DONE
+>>> TLS 1.2, RecordHeader [length 0005]
+    17 03 03 00 13
+>>> TLS 1.2, InnerContent [length 0001]
+    15
+>>> TLS 1.3, Alert [length 0002], warning close_notify
+    01 00
