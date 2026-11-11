@@ -1,0 +1,4 @@
+flood summary n=200 success=200 wall_s=2.54 rate_per_s=78.59
+latency_ms min=32.9 median=116.3 p95=165.8 max=170.7
+server_cpu_delta_s=0.520 cpu_ms_per_attempt=2.60
+server_rss_before_kib=11040 server_rss_after_kib=11040 rss_delta_kib=0
