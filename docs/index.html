@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lattice-Engine Adversarial-Load and Hybrid Migration Assessment</title>
+<style>
+body{font-family:system-ui,-apple-system,sans-serif;max-width:900px;margin:2em auto;padding:0 1em;line-height:1.5;color:#1a1a1a}
+h1{font-size:1.6em}h2{font-size:1.25em;margin-top:1.8em}h3{font-size:1.05em}
+table{border-collapse:collapse;margin:1em 0;width:100%}th,td{border:1px solid #bbb;padding:.35em .6em;text-align:left;font-size:.92em}
+th{background:#eee}code{background:#f2f2f2;padding:0 .25em}
+.note{background:#fff8e1;border-left:4px solid #e6a800;padding:.6em 1em;margin:1em 0}
+.warn{background:#fdecea;border-left:4px solid #c0392b;padding:.6em 1em;margin:1em 0}
+.small{font-size:.85em;color:#555}
+</style>
+</head>
+<body>
+<h1>Lattice-Engine Adversarial-Load and Hybrid Migration Assessment</h1>
+<p>Local measurements of a hybrid TLS 1.3 test deployment
+(<code>X25519MLKEM768</code> vs classical <code>X25519</code>) under baseline
+and adversarial load, plus a migration plan derived from those
+measurements. Every number below is copied verbatim from the unedited
+logs in <code>outputs/</code>; the claims-to-evidence index is
+<code>docs/evidence-index.md</code>.</p>
+
+<h2>Pinned environment</h2>
+<table>
+<tr><th>Component</th><th>Version / value</th></tr>
+<tr><td>OpenSSL</td><td>3.0.13 (system)</td></tr>
+<tr><td>liboqs</td><td>0.16.0, optimized build (<code>OQS_OPT_TARGET=auto</code>)</td></tr>
+<tr><td>oqs-provider</td><td>0.12.0; built <code>oqsprovider.so</code> SHA256 <code>2470693d7154a6d877bf918c4c7c220606e358b19013ac495f2687afe8863c54</code></td></tr>
+<tr><td>Hybrid group</td><td>X25519MLKEM768, group <code>0x11ec</code></td></tr>
+<tr><td>Fallback group</td><td>X25519, group <code>0x001d</code></td></tr>
+<tr><td>Server certificate</td><td>ECDSA P-384, <code>ecdsa-with-SHA256</code>, CN=localhost, generated at runtime</td></tr>
+<tr><td>Negotiated cipher</td><td>TLS_AES_256_GCM_SHA384</td></tr>
+</table>
+
+<h2>Baseline: hybrid vs classical fallback (n=30 each)</h2>
+<table>
+<tr><th>Measurement</th><th>Hybrid run 1</th><th>Hybrid run 2</th><th>Fallback run 1</th><th>Fallback run 2</th></tr>
+<tr><td>Handshake failures</td><td>0 / 30</td><td>0 / 30</td><td>0 / 30</td><td>0 / 30</td></tr>
+<tr><td>Mean handshake time</td><td>18.87 ms</td><td>17.37 ms</td><td>15.53 ms</td><td>15.53 ms</td></tr>
+<tr><td>Median handshake time</td><td>18.00 ms</td><td>17.00 ms</td><td>15.00 ms</td><td>15.00 ms</td></tr>
+<tr><td>Min / max</td><td>17 / 24 ms</td><td>17 / 21 ms</td><td>15 / 17 ms</td><td>15 / 20 ms</td></tr>
+<tr><td>ClientHello total bytes</td><td>1378</td><td>1378</td><td>202</td><td>202</td></tr>
+<tr><td>key_share bytes (group)</td><td>1216 (0x11ec)</td><td>1216 (0x11ec)</td><td>32 (0x001d)</td><td>32 (0x001d)</td></tr>
+<tr><td>Server CPU per handshake</td><td>2.26 ms</td><td>2.58 ms</td><td>1.94 ms</td><td>2.26 ms</td></tr>
+<tr><td>Server RSS delta (warm-up)</td><td>+1392 KiB</td><td>+1500 KiB</td><td>+528 KiB</td><td>+652 KiB</td></tr>
+</table>
+<p><strong>Reading:</strong> the hybrid costs +2–3 ms per handshake at the
+median (+20.0% run 1, +13.3% run 2) and +0.32 ms of server CPU per
+handshake in both runs. Handshake times include <code>s_client</code>
+process spawn (~2–4 ms); the server-side share is the CPU figure.</p>
+
+<h2>ML-KEM-768 primitives (liboqs, n=200)</h2>
+<table>
+<tr><th>Operation</th><th>Run 1 mean</th><th>Run 2 mean</th></tr>
+<tr><td>keypair</td><td>56.63 us (max 7474.45 us)</td><td>31.20 us (max 2430.83 us)</td></tr>
+<tr><td>encaps</td><td>19.79 us</td><td>20.11 us</td></tr>
+<tr><td>decaps</td><td>25.63 us</td><td>25.28 us</td></tr>
+<tr><td>Full KEM round (keypair+encaps+decaps)</td><td>102.05 us</td><td>76.59 us</td></tr>
+<tr><td>Shared-secret mismatches</td><td>0 / 200</td><td>0 / 200</td></tr>
+</table>
+<p>Sizes match FIPS 203 Table 3 exactly in both runs: public key 1184,
+secret key 2400, ciphertext 1088, shared secret 32 bytes. The keypair
+mean is outlier-sensitive (first-call warm-up); encaps/decaps are the
+stable figures to quote.</p>
+
+<h2>Connection flood (200 handshakes, concurrency 10)</h2>
+<table>
+<tr><th>Measurement</th><th>Run 1</th><th>Run 2</th></tr>
+<tr><td>Success</td><td>200 / 200 (100.0%)</td><td>200 / 200 (100.0%)</td></tr>
+<tr><td>Wall time / rate</td><td>2.57 s / 77.89 handshakes/s</td><td>2.55 s / 78.34 handshakes/s</td></tr>
+<tr><td>Latency min / median / p95 / max</td><td>28.9 / 117.2 / 165.1 / 169.8 ms</td><td>24.1 / 118.7 / 164.4 / 175.2 ms</td></tr>
+<tr><td>Server CPU per attempt</td><td>2.70 ms</td><td>2.70 ms</td></tr>
+<tr><td>Server RSS delta</td><td>0 KiB</td><td>0 KiB</td></tr>
+</table>
+<p>Flood median latency (~118 ms) is ~7x the single-handshake median
+because 10 concurrent clients queue on the single-threaded test server;
+server CPU per attempt (2.70 ms) stays close to baseline. The server
+degraded gracefully — slow, not dead.</p>
+
+<h2>Slow-loris stalls (30 stalled partial handshakes, 30 s hold)</h2>
+<table>
+<tr><th>Measurement</th><th>Run 1</th><th>Run 2</th></tr>
+<tr><td>Stalls opened</td><td>30</td><td>30</td></tr>
+<tr><td>Legitimate handshake during hold</td><td>TIMEOUT (10,006 ms)</td><td>TIMEOUT (10,007 ms)</td></tr>
+<tr><td>Stalls still open after 30 s hold</td><td>30 / 30</td><td>30 / 30</td></tr>
+<tr><td>Legitimate handshake after release</td><td>ok, 20.4 ms</td><td>ok, 35.8 ms</td></tr>
+<tr><td>Server CPU delta / RSS delta</td><td>0.010 s / 0 KiB</td><td>0.000 s / 0 KiB</td></tr>
+</table>
+<div class="warn"><strong>Scope warning:</strong> one stalled partial
+handshake blocks the whole test server because <code>openssl
+s_server</code> is single-threaded. This is a property of the test
+deployment, <em>not</em> a production-server claim. The migration plan
+(<code>docs/migration-plan.md</code>) requires re-measuring stall
+behaviour on the production stack and budgeting a handshake timeout,
+per-IP limits, or a concurrent server.</div>
+
+<h2>Malformed ClientHello (6 variants x 10 trials) and truncated handshakes</h2>
+<table>
+<tr><th>Variant</th><th>Sent</th><th>Server reply (both runs, 10/10)</th><th>Server alive after trial</th></tr>
+<tr><td>V1 truncated-record (first 15 B)</td><td>15 B</td><td>no TLS record within 5 s</td><td>10/10 probes ok</td></tr>
+<tr><td>V2 garbage (100 random bytes)</td><td>100 B</td><td>no TLS record</td><td>10/10 probes ok</td></tr>
+<tr><td>V3 oversized-length (claims 16384 B)</td><td>55 B</td><td>no TLS record</td><td>10/10 probes ok</td></tr>
+<tr><td>V4 TLS 1.0 offer</td><td>1303 B</td><td>fatal alert 70 (<code>protocol_version</code>)</td><td>10/10 probes ok</td></tr>
+<tr><td>V5 zero key_share (1216 zero bytes)</td><td>1303 B</td><td>fatal alert 40 (<code>handshake_failure</code>)</td><td>10/10 probes ok</td></tr>
+<tr><td>V6 empty close</td><td>0 B</td><td>no TLS record</td><td>10/10 probes ok</td></tr>
+<tr><td>Truncated 20 B prefix</td><td>20 B</td><td>no TLS record</td><td>10/10 probes ok</td></tr>
+<tr><td>Truncated 100 B prefix</td><td>100 B</td><td>no TLS record</td><td>10/10 probes ok</td></tr>
+</table>
+<p>160/160 post-trial probes succeeded across both runs. The server
+logged 41 <code>ssl3_read_n:unexpected eof</code> errors per adversarial
+run — errors, not a crash.</p>
+
+<h2>Migration plan (summary)</h2>
+<ul>
+<li><strong>Stage 0:</strong> pin the stack; re-run this suite against
+the production server; confirm middlebox tolerance for a 1378-byte
+ClientHello.</li>
+<li><strong>Stage 1 (canary):</strong> offer X25519MLKEM768 first,
+X25519 second; hybrid when both ends support it, classical fallback
+otherwise. Budget ~+15–20% handshake CPU.</li>
+<li><strong>Stage 2 (broad rollout):</strong> extend the hybrid
+preference to all traffic once the canary meets the rollback criteria;
+keep X25519 offered as the fallback.</li>
+<li><strong>Stage 3 (hybrid-only, optional, later):</strong> only after
+every supported client negotiates the hybrid.</li>
+<li><strong>Rollback</strong> (config change only) if: hybrid failure
+rate &gt; 1% over 5 min; median latency &gt; 10 ms above baseline over
+15 min; server CPU per handshake &gt; 1 ms above baseline; any
+confirmed ClientHello-size failure; any stall-related unavailability.</li>
+<li><strong>Slow-loris mitigations:</strong> handshake timeout,
+per-IP limits on half-open handshakes, a concurrent server.</li>
+</ul>
+<p>Full plan: <code>docs/migration-plan.md</code>. Methodology and
+limitations: <code>docs/methodology.md</code>. Claims-to-evidence index:
+<code>docs/evidence-index.md</code>.</p>
+
+<h2>Reproduction</h2>
+<p><code>bash scripts/clean_reproduce.sh</code> rebuilds the pinned
+stack from <code>fixtures/</code>, regenerates certificates, re-runs the
+full suite, and compares re-derived headline numbers against the shipped
+ones (<code>outputs/fresh-clone-compare.txt</code>).
+<code>bash scripts/verify_digests.sh</code> checks every shipped file
+against <code>SHA256SUMS</code>. All tests run against a local
+<code>openssl s_server</code> on <code>127.0.0.1</code> only.</p>
+
+<p class="small">Pinned environment: OpenSSL 3.0.13, liboqs 0.16.0,
+oqs-provider 0.12.0. Logs: <code>outputs/</code> (run1 + run2, unedited).
+Limitations L1–L8 in <code>docs/methodology.md</code> apply — notably,
+the test server is single-threaded and the certificate is classical
+ECDSA P-384.</p>
+</body>
+</html>
